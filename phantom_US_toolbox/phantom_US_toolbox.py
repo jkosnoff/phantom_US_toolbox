@@ -95,7 +95,7 @@ class load_US_data:
     def _parse_file_name(self, file_name):
         
         fid = file_name.split("/")[-1]
-        
+        fid = fid.split("\\")[-1]
         params = {}
         params["len_x"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
         params["len_y"] = int(float(fid.split("y")[0].split("_")[-1]) + 1)
