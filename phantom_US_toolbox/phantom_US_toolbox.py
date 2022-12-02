@@ -120,7 +120,7 @@ class load_US_data:
 
             # Take the integral
             timepoints = np.array([i * 1/self.params["sample_rate"] for i in range(self.params["series_len"])])[0+offset:self.PD_samps+offset]
-            PII = metrics.auc(timepoints,(P_t)**(2) / Z0)
+            PII = metrics.auc(timepoints,(P_t)**(2) / self.Z0)
             
         else:
             ###
