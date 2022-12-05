@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import metrics
 import matplotlib
+import os
 
 import seaborn as sns
 sns.set_style("darkgrid")
@@ -94,8 +95,7 @@ class load_US_data:
                 
     def _parse_file_name(self, file_name):
         
-        fid = file_name.split("/")[-1]
-        fid = fid.split("\\")[-1]
+        fid = os.path.basename(file_name.replace('\\',os.sep))
         params = {}
         params["len_x"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
         params["len_y"] = int(float(fid.split("y")[0].split("_")[-1]) + 1)
