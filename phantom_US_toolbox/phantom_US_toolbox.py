@@ -99,7 +99,7 @@ class load_US_data:
         params = {}
         params["len_x"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
         params["len_y"] = int(float(fid.split("y")[0].split("_")[-1]) + 1)
-        params["len_z"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
+        params["len_z"] = int(float(fid.split("z")[0].split("_")[-1]) + 1)
         params["f0"] = float(fid.split("UFF")[1].split("_")[0]) * 1e3
         params["CPP"] = float(fid.split("CPP")[1].split("_")[0])
         params["pulse_number"] = float(fid.split("PN")[1].split("_")[0])
@@ -170,8 +170,8 @@ class load_US_data:
         
         for _slice in slices:
             plt.figure()
-            plt.xlabel("Y (mm)")
-            plt.ylabel("X (mm)")
+            plt.xlabel("X (mm)")
+            plt.ylabel("Y (mm)")
             plt.title(f"XY {param} at Z = {_slice}")
             plt.imshow(plot_val[_slice,:,:], cmap = "jet", origin = "lower", interpolation = "gaussian")
             fmt = matplotlib.ticker.ScalarFormatter(useMathText=True)
