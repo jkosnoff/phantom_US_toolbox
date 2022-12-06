@@ -76,10 +76,8 @@ class load_US_data:
 
         # flip y on every other z
         data_4D[::2, :, :, :] = data_4D[::2, ::-1, :, :]
-        data_4D[:, ::2, :, :] = data_4D[:, ::2,
-                                        ::-1, :]  # flip x on every other y
-        data_4D[::2, :, :, :] = data_4D[::2, :,
-                                        ::-1, :]  # flip x on every other z
+        data_4D[:, ::2, :, :] = data_4D[:, ::2,::-1, :]  # flip x on every other y
+        data_4D[::2, :, :, :] = data_4D[::2, :,::-1, :]  # flip x on every other z
         return(data_4D)
 
     def _tdms_to_numpy(self, file_name):
@@ -117,8 +115,7 @@ class load_US_data:
                 self.peak_to_peak[self.max_idx] > 1.5 * self.peak_to_peak[self.max_idx].mean())[0][0]
 
             # Calculate the pressure of one pulse
-            P_t = self.data_4D[self.max_idx][0 +
-                                             offset:self.PD_samps+offset] / self.conversion_factor
+            P_t = self.data_4D[self.max_idx][0 + offset:self.PD_samps+offset] / self.conversion_factor
 
             # Take the integral
             timepoints = np.array([i * 1/self.params["sample_rate"] for i in range(
