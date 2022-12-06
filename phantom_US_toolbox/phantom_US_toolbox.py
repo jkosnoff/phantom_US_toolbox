@@ -73,10 +73,15 @@ class load_US_data:
                                          self.params["len_y"], 
                                          self.params["len_x"], 
                                          self.params["series_len"])
+        
         data_4D[::2,:,:,:] = data_4D[::2,::-1,:,:] # flip y on every other z
         data_4D[:,::2,:,:] = data_4D[:,::2,::-1,:] # flip x on every other y
-        if self.params["len_y"] % 2 == 1: # if the length of y is odd, flip x on every other z
-            data_4D[::2,:,:,:] = data_4D[::2,:,::-1,:] # flip x on every other z
+        data_4D[::2,:,:,:] = data_4D[::2,:,::-1,:] # flip x on every other z
+        
+#         data_4D[::2,:,:,:] = data_4D[::2,::-1,:,:] # flip y on every other z
+#         data_4D[:,::2,:,:] = data_4D[:,::2,::-1,:] # flip x on every other y
+#         if self.params["len_y"] % 2 == 1: # if the length of y is odd, flip x on every other z
+#             data_4D[::2,:,:,:] = data_4D[::2,:,::-1,:] # flip x on every other z
 
         return(data_4D)
     
