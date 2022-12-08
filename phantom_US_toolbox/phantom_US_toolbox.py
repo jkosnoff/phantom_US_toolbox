@@ -19,12 +19,12 @@ sns.set_style("darkgrid")
 
 
 class load_US_data:
-    def __init__(self, file_name, passed_parms = None, scanner=0):
+    def __init__(self, file_name, passed_params = None, scanner=0):
         # Ultrasound Parameters
         if passed_parms == None:
             self.params = self._parse_file_name(file_name)
         else:
-            self.params = passed_parms
+            self.params = passed_params
         self.conversion_factor = self._get_conversion_factor(scanner=scanner)
         self.PD = (1/self.params["f0"]) * self.params["CPP"]
         self.PD_samps = round(self.PD * self.params["sample_rate"])
