@@ -182,7 +182,7 @@ class load_US_data:
             plt.colorbar(format=fmt)
             if save_figures == True:
                 plt.savefig(self.params["title"]+f"_{param}_XY_{_slice}mm.png")
-            plt.show()
+        plt.show()
         return
 
     def plot_XZ(self, param, slice_idx="max_slice", save_figures=False):
@@ -217,7 +217,7 @@ class load_US_data:
             plt.colorbar(format=fmt)
             if save_figures == True:
                 plt.savefig(self.params["title"]+f"_{param}_XZ_{_slice}mm.png")
-            plt.show()
+        plt.show()
 
         return
 
