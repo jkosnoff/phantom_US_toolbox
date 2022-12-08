@@ -21,7 +21,7 @@ sns.set_style("darkgrid")
 class load_US_data:
     def __init__(self, file_name, passed_params = None, scanner=0):
         # Ultrasound Parameters
-        if passed_parms == None:
+        if passed_params == None:
             self.params = self._parse_file_name(file_name)
         else:
             self.params = passed_params
