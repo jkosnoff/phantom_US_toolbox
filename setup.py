@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='phantom_US_toolbox',
-    version='0.0.7',
+    version='0.0.8',
     author='Joshua Kosnoff',
     author_email='jkosnoff@andrew.cmu.edu',
     description='This is a toolbox for analyzing phantom tFUS experiments',
@@ -14,5 +14,5 @@ setuptools.setup(
     url="https://github.com/jkosnoff/phantom_US_toolbox",
     packages=['phantom_US_toolbox'],
     install_requires=['nptdms', "pandas", "numpy", "matplotlib",
-                      "sklearn", "seaborn"]
+                      "sklearn", "seaborn", "tkinter"]
 )
