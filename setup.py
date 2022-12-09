@@ -14,5 +14,5 @@ setuptools.setup(
     url="https://github.com/jkosnoff/phantom_US_toolbox",
     packages=['phantom_US_toolbox'],
     install_requires=['nptdms', "pandas", "numpy", "matplotlib",
-                      "sklearn", "seaborn", "tkinter"]
+                      "sklearn", "seaborn", "tk"]
 )
