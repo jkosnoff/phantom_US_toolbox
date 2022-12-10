@@ -98,20 +98,65 @@ class load_US_data:
             print("Error! Unrecognized tdms formatting.")
             return(None)
 
-    def _parse_file_name(self, file_name):
-        fid = os.path.basename(file_name.replace('\\', os.sep))
+def _parse_file_name(self,file_name):
+
+        fid = os.path.basename(fr"{file_name}".replace('\\',os.sep))
         params = {}
-        params["len_x"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
-        params["len_y"] = int(float(fid.split("y")[0].split("_")[-1]) + 1)
-        params["len_z"] = int(float(fid.split("z")[0].split("_")[-1]) + 1)
-        params["f0"] = float(fid.split("UFF")[1].split("_")[0]) * 1e3
-        params["CPP"] = float(fid.split("CPP")[1].split("_")[0])
-        params["pulse_number"] = float(fid.split("PN")[1].split("_")[0])
-        params["sample_rate"] = float(fid.split("SR")[1].split("_")[0])
-        params["PRF"] = float(fid.split("UPRF")[1].split("_")[0])
-        params["input_mv"] = float(fid.split("mv")[0].split("_")[-1])
-        params["series_len"] = int(float(fid.split("DL")[1].split("_")[0]))
-        params["title"] = "_".join(fid.strip(".tdms").split("_")[-2:])
+        try:
+            params["len_x"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
+        except:
+            params["len_x"] = 0
+        
+        try:
+            params["len_y"] = int(float(fid.split("y")[0].split("_")[-1]) + 1)
+        except:
+            params["len_y"] = 0
+        
+        try:
+            params["len_z"] = int(float(fid.split("z")[0].split("_")[-1]) + 1)
+        except:
+            params["len_z"] = 0
+            
+        try:
+            params["f0"] = float(fid.split("UFF")[1].split("_")[0]) * 1e3
+        except:
+            params["f0"] = 0
+        
+        try:
+            params["CPP"] = float(fid.split("CPP")[1].split("_")[0])
+        except:
+            params["CPP"] = 0
+            
+        try:
+            params["pulse_number"] = float(fid.split("PN")[1].split("_")[0])
+        except:
+            params["pulse_number"] = 0
+        
+        try:
+            params["sample_rate"] = float(fid.split("SR")[1].split("_")[0])
+        except:
+            params["sample_rate"] = 0
+        
+        try:
+            params["PRF"] = float(fid.split("UPRF")[1].split("_")[0])
+        except:
+            params["PRF"] = 0
+        
+        try:
+            params["input_mv"] = float(fid.split("mv")[0].split("_")[-1])
+        except:
+            params["input_mv"] = 0
+        
+        try:
+            params["series_len"] = int(float(fid.split("DL")[1].split("_")[0]))
+        except:
+            params["series_len"] = 0 
+        
+        try:
+            params["title"] = "_".join(fid.strip(".tdms").split("_")[-2:])
+        except:
+            params["title"] = 0
+        
         return(params)
 
     def calc_PII(self, pulse_average=False):
