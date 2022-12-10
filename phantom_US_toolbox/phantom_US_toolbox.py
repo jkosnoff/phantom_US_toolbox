@@ -49,6 +49,7 @@ class load_US_data:
         return(max_idx)
 
     def _get_conversion_factor(self, scanner=0):
+        conversion_factor = 2.458e-7
         if scanner == 0:
             if self.params["f0"] == 500e3:
                 conversion_factor = 2.660e-7
@@ -64,8 +65,6 @@ class load_US_data:
                 conversion_factor = 1.313e-7
             elif self.params["f0"] == 1640e3:
                 conversion_factor = 1.884e-7
-            else:
-                conversion_factor = 2.458e-7
 
         # Smaller animal water tank transducer
         else:
