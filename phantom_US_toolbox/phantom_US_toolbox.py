@@ -97,7 +97,7 @@ class load_US_data:
             print("Error! Unrecognized tdms formatting.")
             return(None)
 
-def _parse_file_name(self,file_name):
+    def _parse_file_name(self,file_name):
 
         fid = os.path.basename(fr"{file_name}".replace('\\',os.sep))
         params = {}
