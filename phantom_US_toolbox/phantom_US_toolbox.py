@@ -52,7 +52,7 @@ class load_US_data:
     def _get_conversion_factor(self, scanner=0):
         flag = 1
         idx = 0
-        conv = pd.DataFrame()
+        conv = conv = pd.read_csv("HNR0500-2168_xxxxxx-xxxx-xx_xx_20220428.txt")
         while flag == 1:
             try:
                 conv = pd.read_csv("HNR0500-2168_xxxxxx-xxxx-xx_xx_20220428.txt", delimiter="\t", header = None, skiprows=idx)
