@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='phantom_US_toolbox',
-    version='0.0.18',
+    version='0.0.19',
     author='Joshua Kosnoff',
     author_email='jkosnoff@andrew.cmu.edu',
     description='This is a toolbox for analyzing phantom tFUS experiments',
