@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from sklearn import metrics
 import matplotlib
 import os
+import glob
 
 import seaborn as sns
 sns.set_style("darkgrid")
@@ -52,10 +53,12 @@ class load_US_data:
     def _get_conversion_factor(self, scanner=0):
         flag = 1
         idx = 0
-        conv = conv = pd.read_csv("HNR0500-2168_xxxxxx-xxxx-xx_xx_20220428.txt")
+        txt_file = glob.glob("*.txt")[0]
+        conv = pd.read_csv(txt_file)
+        print(conv)
         while flag == 1:
             try:
-                conv = pd.read_csv("HNR0500-2168_xxxxxx-xxxx-xx_xx_20220428.txt", delimiter="\t", header = None, skiprows=idx)
+                conv = pd.read_csv(txt_file, delimiter="\t", header = None, skiprows=idx)
                 flag = 0
             except:
                 idx += 1
