@@ -97,10 +97,12 @@ class load_US_data:
             print("Error! Unrecognized tdms formatting.")
             return(None)
 
-    def _parse_file_name(self,file_name):
+  def _parse_file_name(file_name):
 
         fid = os.path.basename(fr"{file_name}".replace('\\',os.sep))
         params = {}
+        nums = np.array([1,2,3,4,5,6,7,8,9,0],dtype=str)
+        
         try:
             params["len_x"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
         except:
@@ -142,7 +144,13 @@ class load_US_data:
             params["PRF"] = 0
         
         try:
-            params["input_mv"] = float(fid.split("mv")[0].split("_")[-1])
+            input_mv = fid.split("v_")[0].split("_")[-1]
+            print(input_mv[-1])
+            if input_mv[-1] == "m":
+                input_mv = float(input_mv)
+            if input_mv[-1] in nums:
+                input_mv = float(input_mv) * 1000
+            params["input_mv"] = input_mv
         except:
             params["input_mv"] = 0
         
