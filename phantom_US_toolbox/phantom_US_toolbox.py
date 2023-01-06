@@ -50,27 +50,17 @@ class load_US_data:
         return(max_idx)
 
     def _get_conversion_factor(self, scanner=0):
-        conversion_factor = 2.458e-7
-        if scanner == 0:
-            if self.params["f0"] == 500e3:
-                conversion_factor = 2.660e-7
-            elif self.params["f0"] == 750e3:
-                self.conversion_factor = 3.409e-7
-            elif self.params["f0"] == 930e3:
-                conversion_factor = 2.833e-7
-            elif self.params["f0"] == 1000e3:
-                conversion_factor = 1.9e-7
-            elif self.params["f0"] == 1180e3:
-                conversion_factor = 1.192e-7
-            elif self.params["f0"] == 1350e3:
-                conversion_factor = 1.313e-7
-            elif self.params["f0"] == 1640e3:
-                conversion_factor = 1.884e-7
+        flag = 1
+        idx = 0
+        conv = pd.DataFrame()
+        while flag == 1:
+            try:
+                conv = pd.read_csv("HNR0500-2168_xxxxxx-xxxx-xx_xx_20220428.txt", delimiter="\t", header = None, skiprows=idx)
+                flag = 0
+            except:
+                idx += 1
 
-        # Smaller animal water tank transducer
-        else:
-            conversion_factor = 2.458e-7
-
+        conversion_factor = conv[2][conv[0] == self.params["f0"] / 1000].values[0]
         return(conversion_factor)
 
     def _serpentine_unravel(self, data):
