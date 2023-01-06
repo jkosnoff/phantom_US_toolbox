@@ -55,14 +55,14 @@ class load_US_data:
         idx = 0
         txt_file = glob.glob("*.txt")[0]
         conv = pd.read_csv(txt_file)
-        print(conv)
+#         print(conv)
         while flag == 1:
             try:
                 conv = pd.read_csv(txt_file, delimiter="\t", header = None, skiprows=idx)
                 flag = 0
             except:
                 idx += 1
-
+        print(idx)
         conversion_factor = conv[2][conv[0] == self.params["f0"] / 1000].values[0]
         return(conversion_factor)
 
