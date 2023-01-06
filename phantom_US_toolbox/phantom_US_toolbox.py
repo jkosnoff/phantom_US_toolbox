@@ -19,7 +19,8 @@ sns.set_style("darkgrid")
 
 
 class load_US_data:
-    def __init__(self, file_name, passed_params = None, scanner=0):
+    def __init__(self, file_name, passed_params = None, scanner=0, _print=True):
+        self.print=_print
         # Ultrasound Parameters
         if passed_params == None:
             self.params = self._parse_file_name(file_name)
@@ -85,16 +86,19 @@ class load_US_data:
         return(data_4D)
 
     def _tdms_to_numpy(self, file_name):
-        print("Opening File . . .")
+        if self.print == True:
+            print("Opening File . . .")
         tdms_file = TdmsFile.read(file_name)
 
         if len(tdms_file.groups()) == 1:
-            print("Extracting Data . . .")
+            if self.print == True:
+                print("Extracting Data . . .")
             data = tdms_file.groups()[0].channels()[0][:]
             return(data)
 
         else:
-            print("Error! Unrecognized tdms formatting.")
+            if self.print == True:
+                print("Error! Unrecognized tdms formatting.")
             return(None)
     def _parse_file_name(self,file_name):
 
@@ -144,7 +148,6 @@ class load_US_data:
         
         try:
             input_mv = fid.split("v_")[0].split("_")[-1]
-            print(input_mv[-1])
             if input_mv[-1] == "m":
                 input_mv = float(input_mv)
             if input_mv[-1] in nums:
