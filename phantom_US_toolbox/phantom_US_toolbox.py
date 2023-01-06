@@ -62,7 +62,7 @@ class load_US_data:
                 flag = 0
             except:
                 idx += 1
-        print(idx)
+        print(conv[2][conv[0] == self.params["f0"] / 1000])
         conversion_factor = conv[2][conv[0] == self.params["f0"] / 1000].values[0]
         return(conversion_factor)
 
