@@ -66,6 +66,7 @@ class load_US_data:
 #         print(conv[conv[0] == self.params["f0"] / 1000000])
 #         print(conv[2][conv[0] == self.params["f0"] / 1000000])
         conversion_factor = conv[2][conv[0] == self.params["f0"] / 1000000].values[0]
+        print(conversion_factor)
         return(conversion_factor)
 
     def _serpentine_unravel(self, data):
