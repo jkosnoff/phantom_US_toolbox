@@ -194,7 +194,7 @@ class load_US_data:
         return(Ispta)
 
     def calc_Pmax(self):
-        return(self.max_V / self.conversion_factor)
+        return(self.peak_to_peak[self.max_idx] / self.conversion_factor)
 
     def calc_MI(self):
         return((0.5 * (np.max(self.peak_to_peak[self.max_idx]) / self.conversion_factor) / 10**(6)) / (self.params["f0"] / 10**(6))**(0.5))
