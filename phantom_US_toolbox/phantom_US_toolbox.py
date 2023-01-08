@@ -39,6 +39,7 @@ class load_US_data:
         # Load data
         data = self._tdms_to_numpy(file_name)
         self.max_V = data.max()
+        self.min_V = data.min()
         self.data_4D = self._serpentine_unravel(data)
         del data
         self.peak_to_peak = self.data_4D - \
@@ -197,7 +198,7 @@ class load_US_data:
         return(self.peak_to_peak.max() / self.conversion_factor)
 
     def calc_MI(self):
-        return((0.5 * (np.max(self.peak_to_peak[self.max_idx]) / self.conversion_factor) / 10**(6)) / (self.params["f0"] / 10**(6))**(0.5))
+        return(((np.abs(self.min_V) / self.conversion_factor) / 10**(6)) / (self.params["f0"] / 10**(6))**(0.5))
 
     def calc_Vpp_max(self):
         return(self.max_V)
@@ -280,5 +281,6 @@ class load_US_data:
         df.loc["Ispta (mW/cm^2)"] = self.calc_Ispta()
         df.loc["MI"] = self.calc_MI()
         df.loc["Pmax (Pa)"] = self.calc_Pmax()
+        df.loc["Vmin"] = self.min_V
         df.loc["Focal Point (Z, Y, X)"] = [np.asarray(self.max_idx)]
         return(df)
