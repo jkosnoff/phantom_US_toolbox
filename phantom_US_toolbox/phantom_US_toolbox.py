@@ -282,5 +282,6 @@ class load_US_data:
         df.loc["MI"] = self.calc_MI()
         df.loc["Pmax (Pa)"] = self.calc_Pmax()
         df.loc["Vmin"] = self.min_V
+        df.loc["PNP"] = np.abs(self.min_V) / self.conversion_factor
         df.loc["Focal Point (Z, Y, X)"] = [np.asarray(self.max_idx)]
         return(df)
