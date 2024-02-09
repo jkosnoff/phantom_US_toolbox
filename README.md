@@ -19,7 +19,7 @@ Confirm that all the data in the boxes is correct and click on "Analyze Data." A
 
 <img width="741" alt="Screenshot 2024-02-09 at 4 26 35 PM" src="https://github.com/jkosnoff/phantom_US_toolbox/assets/70274595/d0240905-12c9-421d-b281-a016346227ce">
 
-Here you have the option to plot different slices of the scan. Select "Pressure" to see a pressure map, and/or "Intensity" to see an intensity map. Select XY or XY to see the respective views. **Note:** I am currently working on implementing a 3D plot option, to visualize the whole cigar shape but this is currently not supported. Selecting "Focal Point" will automatically show you the point of highest pressure/intensity, whereas all plotting locations will give you all the slices. Here's an example: 
+Here you have the option to plot different slices of the scan. Select "Pressure" to see a pressure map, and/or "Intensity" to see an intensity map. Select XY or XY to see the respective views. Selecting "Focal Point" will automatically show you the point of highest pressure/intensity, whereas all plotting locations will give you all the slices. Here's an example: 
 
 ![image](https://github.com/jkosnoff/phantom_US_toolbox/assets/70274595/472ef5bf-e8fb-4791-8577-4f915362748a)
 
