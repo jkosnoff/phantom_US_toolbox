@@ -23,6 +23,6 @@ Here you have the option to plot different slices of the scan. Select "Pressure"
 
 ![image](https://github.com/jkosnoff/phantom_US_toolbox/assets/70274595/472ef5bf-e8fb-4791-8577-4f915362748a)
 
-If you want a little more freedom to play around with the data, the data extraction functions are all in phantom_US_toolbox.py. I am currently considering a function to automatically calculate the derated intensities and to plot a 3D shape of the US beam (see Legon 2014 for an example of this), but these are currently not supported. 
+If you want a little more freedom to play around with the data, the data extraction functions are all in phantom_US_toolbox.py. I am currently considering a function to automatically calculate the derated intensities and to plot a 3D shape of the US beam (see Legon 2014 for an example of this), but these are currently not supported. Please feel free to reach out and ask me for questions about making the plots a little more publication ready; I may include this automatically in the future. For now, though, these provide a quick way to visually inspect the data. 
 
 Cheers!
