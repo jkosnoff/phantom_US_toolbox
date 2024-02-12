@@ -1,7 +1,7 @@
 # phantom_US_toolbox
 A toolbox for analyzing code from phantom ultrasound experiments
 
-To install, make sure that you have Python downloaded. I use Anaconda as my Python manager, but there are plenty of options out there. Once you have Python downloaded, download this code package. In terminal (on Macs; Anaconda Powershell or equivalent on Windows), navigate to this folder's directory (cd /path/to/phantom_US_toolbox-main). Install the needed packages by running:
+To install, make sure that you have Python downloaded. I use Anaconda as my Python manager, but there are plenty of options out there. Once you have Python downloaded, download this code package. In terminal (on Macs; Anaconda Powershell or equivalent on Windows), navigate to this folder's directory (cd /path/to/phantom_US_toolbox). Install the needed packages by running:
 
 **pip install -r requirements.txt**
 
