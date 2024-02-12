@@ -1,11 +1,15 @@
 # phantom_US_toolbox
 A toolbox for analyzing code from phantom ultrasound experiments
 
-To install, make sure that you have Python downloaded. I use Anaconda as my Python manager, but there are plenty of options out there. Once you have Python downloaded, download this code package. In terminal (on Macs; Anaconda Powershell or equivalent on Windows), navigate to this folder's directory (cd /path/to/folder). Install the needed packages by running:
+To install, make sure that you have Python downloaded. I use Anaconda as my Python manager, but there are plenty of options out there. Once you have Python downloaded, download this code package. In terminal (on Macs; Anaconda Powershell or equivalent on Windows), navigate to this folder's directory (cd /path/to/phantom_US_toolbox-main). Install the needed packages by running:
 
 **pip install -r requirements.txt**
 
-Open the US_GUI.py program and hit run. You should see the following: 
+Open the US_GUI.py program. You can either do this by opening the file in an IDE (such as Spyder, Visual Studio, etc) and hitting run, or by navigating to the folder in terminal. Once you have navigated to the folder (cd /path/to/phantom_US_toolbox-main), you can type the following into terminal: 
+
+**python US_GUI.py**
+
+You should see the following: 
 
 <img width="216" alt="Screenshot 2024-02-09 at 4 12 07 PM" src="https://github.com/jkosnoff/phantom_US_toolbox/assets/70274595/a54806d8-37f4-4aac-a26b-ae24605c9d08">
 
@@ -23,6 +27,6 @@ Here you have the option to plot different slices of the scan. Select "Pressure"
 
 ![image](https://github.com/jkosnoff/phantom_US_toolbox/assets/70274595/472ef5bf-e8fb-4791-8577-4f915362748a)
 
-If you want a little more freedom to play around with the data, the data extraction functions are all in phantom_US_toolbox.py. I am currently considering a function to automatically calculate the derated intensities and to plot a 3D shape of the US beam (see Legon 2014 for an example of this), but these are currently not supported. Please feel free to reach out and ask me for questions about making the plots a little more publication ready; I may include this automatically in the future. For now, though, these provide a quick way to visually inspect the data. 
+If you want a little more freedom to play around with the data, the data extraction functions are all in phantom_US_toolbox.py. I am currently considering a function to automatically calculate the *derated* intensities (this is a bit tricky though because the transducer is not guaranteed to be the center of the scanning of the scanning field) or to plot a 3D shape of the US beam (see Legon 2014 for an example of this), but these are currently not supported. Please feel free to reach out and ask me for questions about making the plots a little more publication ready; I may include this automatically in the future. For now, though, these provide a quick way to visually inspect the data. 
 
 Cheers!
