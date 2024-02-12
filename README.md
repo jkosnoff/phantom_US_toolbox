@@ -5,7 +5,7 @@ To install, make sure that you have Python downloaded. I use Anaconda as my Pyth
 
 **pip install -r requirements.txt**
 
-Open the US_GUI.py program. You can either do this by opening the file in an IDE (such as Spyder, Visual Studio, etc) and hitting run, or by navigating to the folder in terminal. Once you have navigated to the folder (cd /path/to/phantom_US_toolbox-main), you can type the following into terminal: 
+Open the US_GUI.py program. You can either do this by opening the file in an IDE (such as Spyder, Visual Studio, etc) or through terminal (/Powershell). If you are doing it through terminal, navigate into the phantom_US_toolbox folder and type the following:
 
 **python US_GUI.py**
 
