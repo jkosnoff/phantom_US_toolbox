@@ -1,5 +1,5 @@
 # phantom_US_toolbox
-A toolbox for analyzing code from phantom ultrasound experiments
+A toolbox for analyzing code from phantom ultrasound experiments. The equations are based off of the original Matlab code by Kai Yu.
 
 To install, make sure that you have Python downloaded. I use Anaconda as my Python manager, but there are plenty of options out there. Once you have Python downloaded, download this code package. In terminal (on Macs; Anaconda Powershell or equivalent on Windows), navigate to this folder's directory (cd /path/to/phantom_US_toolbox-main). Install the needed packages by running:
 
@@ -29,6 +29,6 @@ Here you have the option to plot different slices of the scan. Select "Pressure"
 
 If you want a little more freedom to play around with the data, the data extraction functions are all in phantom_US_toolbox.py. I am currently considering a function to automatically calculate the *derated* intensities (this is a bit tricky though because the transducer is not guaranteed to be the center of the scanning of the scanning field) or to plot a 3D shape of the US beam (see Legon 2014 for an example of this), but these are currently not supported. Please feel free to reach out and ask me for questions about making the plots a little more publication ready (changes in font style, resolution, different layouts, etc); I may include this automatically in the future. For now, though, these provide a quick way to visually inspect the data. 
 
-**Other important note**: Do not change or modify the other .txt file. This is the hydrophone calibration file. If we get a new hydrophone or an updated calibration, we *should* just be able to replace the old file with the new, but, seeing this has not been tested so there may be some bugs to work out in that case. 
+**Other important note**: Do not change or modify the other .txt file. This is the hydrophone calibration file. If we get a new hydrophone or an updated calibration, we *should* just be able to replace the old file with the new, but this has not been tested so there may be some bugs to work out when the time comes.
 
 Cheers!
