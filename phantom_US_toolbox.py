@@ -54,7 +54,7 @@ class load_US_data:
     def _get_conversion_factor(self, scanner=0):
         flag = 1
         idx = 0
-        txt_file = glob.glob("*.txt")[0]
+        txt_file = glob.glob("[!_requirements]*.txt")[0]
         conv = pd.read_csv(txt_file)
 #         print(conv)
         while flag == 1:
