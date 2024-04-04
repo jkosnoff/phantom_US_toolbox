@@ -104,20 +104,26 @@ class load_US_data:
         nums = np.array([1,2,3,4,5,6,7,8,9,0],dtype=str)
         
         try:
-            params["len_x"] = int(float(fid.split("x")[0].split("_")[-1]) + 1)
+            dx = float(fid.split("x")[1].split("_")[0])
+            # print("dx: ", dx) 
+            params["len_x"] = int((float(fid.split("x")[0].split("_")[-1]) / dx) + 1)
         except:
             params["len_x"] = 0
         
         try:
-            params["len_y"] = int(float(fid.split("y")[0].split("_")[-1]) + 1)
+            dy = float(fid.split("y")[1].split("_")[0])
+            # print("dy: ", dy) 
+            params["len_y"] = int((float(fid.split("y")[0].split("_")[-1]) / dy) + 1)
         except:
             params["len_y"] = 0
         
         try:
-            params["len_z"] = int(float(fid.split("z")[0].split("_")[-1]) + 1)
+            dz = float(fid.split("z")[1].split("_")[0])
+            # print("dz: ", dz)                    
+            params["len_z"] = int((float(fid.split("z")[0].split("_")[-1]) / dz) + 1)
         except:
             params["len_z"] = 0
-            
+
         try:
             params["f0"] = float(fid.split("UFF")[1].split("_")[0]) * 1e3
         except:
