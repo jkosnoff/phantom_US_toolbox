@@ -44,6 +44,7 @@ class load_US_data:
         del data
         self.peak_to_peak = self.data_4D - \
             self.data_4D.min(axis=-1, keepdims=True)
+
         self.max_idx = self.get_max_channel_idx(self.peak_to_peak)
 
     def get_max_channel_idx(self, series):
@@ -227,10 +228,10 @@ class load_US_data:
     def plot_XY(self, param, slice_idx="max_slice", save_figures=False):
         if param.lower() == "pressure":
             plot_val = (self.peak_to_peak.max(
-                axis=-1, keepdims=True).squeeze() / self.conversion_factor)
+                axis=-1, keepdims=True) / self.conversion_factor)
         elif param.lower() == "intensity":
             plot_val = (self.peak_to_peak.max(
-                axis=-1, keepdims=True).squeeze() / self.conversion_factor) ** (2) / self.Z0
+                axis=-1, keepdims=True) / self.conversion_factor) ** (2) / self.Z0
 
         else:
             print(
