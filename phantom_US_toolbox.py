@@ -188,10 +188,10 @@ class load_US_data:
 
     def calc_PII(self, pulse_average=False):
         if not pulse_average:
-             try: 
+            try:
                 offset = np.where(
                     self.peak_to_peak[self.max_idx] > 1.5 * self.peak_to_peak[self.max_idx].mean())[0][0]
-            # The signal might not well defined if using lower voltages. In that case, just take the first data point.
+                # The signal might not well defined if using lower voltages. In that case, just take the first data point.
             except IndexError:
                 offset = 0
 
