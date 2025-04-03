@@ -1,8 +1,3 @@
- try: 
-                offset = np.where(
-                    self.peak_to_peak[self.max_idx] > 1.5 * self.peak_to_peak[self.max_idx].mean())[0][0]
-            except IndexError:
-                offset = 0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
