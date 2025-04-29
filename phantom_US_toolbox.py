@@ -14,9 +14,58 @@ from sklearn import metrics
 import matplotlib
 import os
 import glob
+import scipy
 
 import seaborn as sns
 sns.set_style("white")
+
+
+def clean_up_recording(data_4D, sigma=(3.0, 0.5, 0.5)):
+    """
+
+    Parameters
+    ----------
+    data_4D : np.array
+        4D Data from the hydrophone (z, x, y, time).
+    sigma : tuple of floats, optional
+        The size of the Gaussian kernel to use. The default is (3.0, 0.5, 0.5).
+
+    Returns
+    -------
+    data_4D : np.array
+        The cleaned data array.
+
+    """
+
+    # Detrend in small chunks to remove movement artifacts
+    bps = [500 * i for i in range(data_4D.shape[-1] // 500)]
+    data_4D = scipy.signal.detrend(data_4D, type='linear', bp=bps)
+
+    # Apply a 3D Gaussian spatial filter to help clean up any additional artifacts
+    maxes = data_4D.max(axis=-1)
+
+    maxes = scipy.ndimage.gaussian_filter(maxes, sigma=sigma)
+
+    data_4D *= maxes[:, :, :, np.newaxis] / data_4D.max(axis=-1, keepdims=True)
+
+    # Find the (current) maximum index
+    z, y, x, _ = np.where(data_4D == data_4D.max())
+    max_data = data_4D[:, y[0], x[0], :].max(axis=-1)
+
+    # Look for the 0 crossings of the 1st derivative (AKA mins and maxes)
+    zero_crossings = np.where(np.diff(np.signbit(np.diff(max_data))))[0]
+
+    try:
+        local_minimums = zero_crossings[np.array(
+            [np.signbit(np.diff(max_data)[i]) for i in zero_crossings])]
+
+        if len(local_minimums) > 2:
+            data_4D = data_4D[:local_minimums[2], :, :, :]
+
+    except IndexError:
+        pass
+
+    return data_4D
 
 
 class load_US_data:
@@ -41,6 +90,9 @@ class load_US_data:
         self.max_V = data.max()
         self.min_V = data.min()
         self.data_4D = self._serpentine_unravel(data)
+        self.data_4D = clean_up_recording(self.data_4D)
+        self.params["len_z"] = self.data_4D.shape[0]
+
         del data
         self.peak_to_peak = self.data_4D - \
             self.data_4D.min(axis=-1, keepdims=True)
